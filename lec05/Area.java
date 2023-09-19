@@ -1,0 +1,15 @@
+public class Area {
+
+  public static double recArea(double height, double weight) {
+    double area = height * weight;
+    return area;
+  }
+ 
+  public static void main(String[] args) {
+
+    double size = recArea(10., 5);
+    System.out.printf("The area is %.2f\n", size);    
+
+  }
+
+}
