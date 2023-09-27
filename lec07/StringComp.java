@@ -16,12 +16,20 @@ public class StringComp {
     String four = "on";
     System.out.printf("one == four+\"e\": %b\n", one == four + "e");
 
-    /*
     System.out.println("Using compareTo");
     System.out.printf("one.compareTo(two): %d\n", one.compareTo(two));
     System.out.printf("three.compareTo(two): %d\n", three.compareTo(two));
     System.out.printf("one.compareTo(four+\"e\"): %d\n", one.compareTo(four + "e"));
-    */
+
+    boolean isSame = "hello".compareTo("hello") == 0;
+    System.out.printf("compareTo: %b\n", isSame);
+
+    // will these be positive or negative?
+    System.out.println("abc".compareTo("aza"));    
+
+
+
+
   }
 
 }
