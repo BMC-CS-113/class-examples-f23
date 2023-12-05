@@ -1,3 +1,7 @@
+//Adam Poliak
+// 12/05/2023
+// BInary Search - recursive & iterative solutions
+
 public class BinarySearch {
 
   public static boolean contains(int[] haystack, int needle, int low, int high) {
@@ -23,7 +27,28 @@ public class BinarySearch {
 
   }
   public static boolean containsIterative(int[] haystack, int needle) {
+    int low = 0;
+    int high = haystack.length - 1;
+    int count = 0;
+    while(low <= high) {
+      int mid = (low + high) / 2;
+      count++;
 
+      if (haystack[mid] == needle) {
+        System.out.printf("Performed %d comparisons\n", count);
+        return true;
+      }
+
+      else if (haystack[mid] > needle) {
+       //go left
+       high = mid - 1;
+      }
+      else {
+        low = mid + 1;
+      }
+    }
+    System.out.printf("Performed %d comparisons\n", count);
+    return false;
   }
 
   public static boolean contains(int[] haystack, int needle) {
@@ -38,9 +63,11 @@ public class BinarySearch {
     for (int n: haystack) {
       count++;
       if (n == needle) {
+        System.out.printf("Performed %d comparisons\n", count);
         return true;
       } 
     }
+    System.out.printf("Performed %d comparisons\n", count);
     return false;
 
   }
@@ -48,6 +75,7 @@ public class BinarySearch {
   public static void main(String[] args) {
 
     int[] numbs = {-2, 5, 21, 30, 64, 100, 256, 500};
+    System.out.println("recursion");
     System.out.println(contains(numbs, 100));   
     //System.out.println(linSearch(numbs, 100));
     System.out.println(contains(numbs, 4));   
@@ -57,6 +85,19 @@ public class BinarySearch {
     System.out.println(contains(numbs, -1));   
     //System.out.println(linSearch(numbs, -1));
 
+    System.out.println("iterative");
+    System.out.println(containsIterative(numbs, 100));   
+    System.out.println(containsIterative(numbs, 4));   
+    System.out.println(containsIterative(numbs, 30));   
+    System.out.println(containsIterative(numbs, -1));  
+    System.out.println(containsIterative(numbs, -2));  
+ 
+    System.out.println("linear");
+ 
+    System.out.println(linSearch(numbs, 100));
+    System.out.println(linSearch(numbs, 4));
+    System.out.println(linSearch(numbs, 30));
+    System.out.println(linSearch(numbs, -1));
   }
 
 }
